@@ -23,7 +23,10 @@ async def on_message(message):
 
     if message.content.startswith('>get booba'):
         boobaImage = BoobaImage('link', 'name', [])
-        await message.channel.send(boobaImage.GetBoobaLinks())
+        if message.content.startswith('>get booba -r'):
+            await message.channel.send(boobaImage.GetBoobaLinksRandom())
+        if message.content.startswith('>get booba -l'):
+            await message.channel.send(boobaImage.GetBoobaLinkLast())
 
-client.run(" OTQzMTIzNjkyNDQxOTkzMjE3.YgueYg.VF9rgiAlzVjrUcFvFAtbovmVQcQ ")
+client.run(" OTQzMTIzNjkyNDQxOTkzMjE3.YgueYg.INdFXdhwBYDbzXKfBq-YVR9WPnw ")
 
