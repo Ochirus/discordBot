@@ -1,6 +1,7 @@
 import discord
 
 from Links.BoobaLinks import BoobaImage
+from Links.HentaiLibLinks import HentaiLib
 
 client = discord.Client()
 
@@ -28,5 +29,9 @@ async def on_message(message):
         if message.content.startswith('>get booba -l'):
             await message.channel.send(boobaImage.GetBoobaLinkLast())
 
-client.run(" OTQzMTIzNjkyNDQxOTkzMjE3.YgueYg.INdFXdhwBYDbzXKfBq-YVR9WPnw ")
+    if message.content.startswith('>get henti -r'):
+        hentaiLib = HentaiLib(None, None)
+        await message.channel.send(hentaiLib.GetRandomLink())
+
+client.run(" OTQzMTIzNjkyNDQxOTkzMjE3.YgueYg.k2O9uOSEHN8DNa6eBRYieCTK76Q ")
 
