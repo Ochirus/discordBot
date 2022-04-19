@@ -29,9 +29,22 @@ async def on_message(message):
         if message.content.startswith('>get booba -l'):
             await message.channel.send(boobaImage.GetBoobaLinkLast())
 
-    if message.content.startswith('>get henti -r'):
+    if message.content.startswith('>get henti'):
         hentaiLib = HentaiLib(None, None)
-        await message.channel.send(hentaiLib.GetRandomLink())
 
-client.run(" OTQzMTIzNjkyNDQxOTkzMjE3.YgueYg.k2O9uOSEHN8DNa6eBRYieCTK76Q ")
+        if message.content.startswith('>get henti -title'):
+            hentaiLib.SetAuthor(message.content)
+            hentaiLib.SetTitle(message.content)
+            await message.channel.send(hentaiLib.GetLink())
+
+        if message.content.startswith('>get henti -author'):
+            hentaiLib.SetAuthor(message.content)
+            await message.channel.send(hentaiLib.GetRandomAuthorLink())
+
+        if message.content.startswith('>get henti -r'):
+            hentaiLib.GetRandomLink()
+            for iterator in range(hentaiLib.GetTag_contents_size()):
+                await message.channel.send(hentaiLib.GetLinkImage(iterator))
+
+client.run("  ")
 
